@@ -1,0 +1,18 @@
+name: notify sleep
+on:
+  schedule:
+  - cron: '50 15 * * 0,1,2,3,4'
+
+jobs:
+  notify_sleep:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+        architecture: 'x64'
+    - name: Run sleep notification script
+      run: |
+        python ./src/NotifySleep.py --webhook="${{ secrets.EECG_BOT_WEBHOOK }}"
