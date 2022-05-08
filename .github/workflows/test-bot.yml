@@ -1,7 +1,7 @@
 name: test bot
 on:
   push:
-  - branches: [ main ]
+    branches: [ main ]
 
 jobs:
   notify_sleep:
